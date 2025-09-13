@@ -76,7 +76,9 @@ src/
 
 ## 📸 Demo Screenshot
 
-(You can add a screenshot or GIF of your app here later.)
+<div align="center">
+    <img src="public/demo.png" alt="Eat 'N Split">
+</div>
 
 ---
 
