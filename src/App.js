@@ -20,25 +20,29 @@ const initialFriends = [
   },
 ];
 
-function App() {
-  const [displayAddFriend, setDisplayAddFriend] = useState(false);
+function Button({ onHandleClick, children }) {
+  return (
+    <button className="button" onClick={onHandleClick}>
+      {children}
+    </button>
+  );
+}
 
-  function handleClick() {
-    setDisplayAddFriend((cur) => !cur);
+function App() {
+  const [showAddFriend, setShowAddFriend] = useState(false);
+
+  function handleShowAddFriend() {
+    setShowAddFriend((show) => !show);
   }
 
   return (
     <div className="app">
       <div className="sidebar">
         <FriendList />
-        {displayAddFriend ? (
-          <Button onHandleClick={handleClick}>Add friend</Button>
-        ) : (
-          <>
-            <FormAddFriend />
-            <Button onHandleClick={handleClick}>Close</Button>
-          </>
-        )}
+        {showAddFriend && <FormAddFriend />}
+        <Button onHandleClick={handleShowAddFriend}>
+          {showAddFriend ? "Close" : "Add friend"}
+        </Button>
       </div>
       <FormSplitBill />
     </div>
@@ -75,14 +79,6 @@ function Friend({ friend }) {
       {friend.balance === 0 && <p>You and {friend.name} are even</p>}
       <Button>Select</Button>
     </li>
-  );
-}
-
-function Button({ onHandleClick, children }) {
-  return (
-    <button className="button" onClick={onHandleClick}>
-      {children}
-    </button>
   );
 }
 
