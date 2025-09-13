@@ -30,7 +30,7 @@ A simple **React app** to manage friends and split bills easily. You can add new
 
 ## 📂 Project Structure
 
-src/
+```src/
 │── App.js # Main component (manages state & logic)
 │── index.js # Entry point
 │── styles.css # Styles
@@ -41,7 +41,7 @@ src/
 │ ├── FormAddFriend # Form to add new friend
 │ ├── FormSplitBill # Form to split bills
 │ └── Button # Reusable button component
-
+```
 ---
 
 ## ⚙️ How It Works
