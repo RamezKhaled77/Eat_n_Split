@@ -30,7 +30,8 @@ A simple **React app** to manage friends and split bills easily. You can add new
 
 ## 📂 Project Structure
 
-```src/
+```
+src/
 │── App.js # Main component (manages state & logic)
 │── index.js # Entry point
 │── styles.css # Styles
