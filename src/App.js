@@ -1,3 +1,4 @@
+import { useState } from "react";
 const initialFriends = [
   {
     id: 118836,
@@ -20,10 +21,24 @@ const initialFriends = [
 ];
 
 function App() {
+  const [displayAddFriend, setDisplayAddFriend] = useState(false);
+
+  function handleClick() {
+    setDisplayAddFriend((cur) => !cur);
+  }
+
   return (
     <div className="app">
       <div className="sidebar">
         <FriendList />
+        {displayAddFriend ? (
+          <Button onHandleClick={handleClick}>Add friend</Button>
+        ) : (
+          <>
+            <FormAddFriend />
+            <Button onHandleClick={handleClick}>Close</Button>
+          </>
+        )}
       </div>
     </div>
   );
@@ -57,8 +72,28 @@ function Friend({ friend }) {
         </p>
       )}
       {friend.balance === 0 && <p>You and {friend.name} are even</p>}
-      <button className="button">Select</button>
+      <Button>Select</Button>
     </li>
+  );
+}
+
+function Button({ onHandleClick, children }) {
+  return (
+    <button className="button" onClick={onHandleClick}>
+      {children}
+    </button>
+  );
+}
+
+function FormAddFriend() {
+  return (
+    <form className="form-add-friend">
+      <label>👫 Friend</label>
+      <input type="text" />
+      <label>🌄 Image URL</label>
+      <input type="text" />
+      <Button>Add</Button>
+    </form>
   );
 }
 
