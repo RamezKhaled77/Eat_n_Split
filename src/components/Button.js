@@ -1,4 +1,4 @@
-export function Button({ onHandleClick, children }) {
+export default function Button({ onHandleClick, children }) {
   return (
     <button className="button" onClick={onHandleClick}>
       {children}

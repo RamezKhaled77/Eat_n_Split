@@ -1,6 +1,6 @@
-import { Friend } from "./components/Friend";
+import Friend from "./Friend";
 
-export function FriendList({ friends, selectedFriend, onSelect }) {
+export default function FriendList({ friends, selectedFriend, onSelect }) {
   return (
     <ul>
       {friends.map((friend) => (
